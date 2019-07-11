@@ -1,0 +1,48 @@
+<%- include('layout/head') %>
+
+<%- include('layout/header') %>
+<%- include('layout/aside') %>
+<div class="content">
+  <div class="panel new">
+    <h3>会生活</h3>
+  </div>
+  <div class="load-more">
+    <div id="btn-load-more" class="btn btn-load-more">加载更多</div>
+  </div>
+</div>
+<%- include('layout/foot') %>
+</div>
+</body>
+<script src="/assets/vendors/art-template/template-web.js"></script>
+<script src="/assets/js/utils.js"></script>
+<script src="/assets/js/list.js"></script>
+<script type="text/template" id="tp">
+  {{each $data $val}}
+    <div class="entry">
+      <div class="head">
+        <span class="sort">{{$val.name}}</span>
+        <a href="/detail?id={{$val.id}}">{{$val.title}}</a>
+      </div>
+      <div class="main">
+        <p class="info">{{$val.nickname}} 发表于 {{$val.created}}</p>
+        <div class="brief">{{@$val.content}}</div>
+        <p class="extra">
+          <span class="reading">阅读({{$val.views}})</span>
+          <span class="comment">评论(0)</span>
+          <a href="/detail?id={{$val.id}}" class="like">
+            <i class="fa fa-thumbs-up"></i>
+            <span>赞({{$val.likes}})</span>
+          </a>
+          <a href="javascript:;" class="tags">
+            分类：<span>{{$val.name}}</span>
+          </a>
+        </p>
+        <a href="/detail?id={{$val.id}}" class="thumb">
+          <img src="{{$val.feature}}" alt="">
+        </a>
+      </div>
+    </div>
+  {{/each}}
+</script>
+
+</html>
